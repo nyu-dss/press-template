@@ -1,0 +1,78 @@
+# Site title
+title: Change me
+# Full URL
+url: https://change.me
+# Leave empty or remove if hosting from root ("/")
+baseurl: change/me/if/hosting/on/a/subdirectory
+# Affects dates and timestamps
+timezone: America/New_York
+# Language options
+lang: en
+locale: en
+dir: ltr
+# This is the main color scheme for pages not related to a book
+color: '#changeme'
+# This minifies SASS/CSS and loads Bootstrap from a package.
+sass:
+  style: compressed
+  load_paths:
+  - node_modules
+# Theme
+theme: keywords-jekyll-theme
+# Jekyll plugins
+plugins:
+- jekyll-include-cache
+- jekyll-sitemap
+- jekyll-seo-tag
+- jekyll-ignore-layouts
+- sutty-liquid
+- jekyll-linked-posts
+- jekyll-lunr
+- jekyll-alternate-permalinks
+# Fields indexed.  Fields that are also linked fields are sub-indexed.
+#
+# XXX: Don't add fields that may point to printed essays or their
+# content will leak into the data.json file.  Currently there's no
+# reason to.  See _plugins/index.rb.
+jekyll-lunr:
+  fields:
+  - title
+  - availability
+  - book
+  - authors
+  - editors
+  - page
+  - layout
+  - color
+  - slug
+# Fields that contain UUIDs to other posts.  This allows to simplify
+# finding associated data in the theme.
+linked_fields:
+- book
+- books
+- authors
+- editors
+- posts
+- essays
+- introduction
+- acknowledgments
+- courses
+- about
+- rights
+- pages
+- works_cited
+- extra_contributors
+exclude:
+- Makefile
+- README.md
+- yarn.lock
+- package.json
+book_layouts:
+- book
+- feature
+# The availability whose contents are not published.
+default_availability: Printed Essays
+analytics:
+  id:
+  anonymize_ip: true
+  tag_manager:

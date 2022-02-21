@@ -1,0 +1,34 @@
+name: ftpdeploy
+on:
+  push:
+    branches:
+    - 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      JEKYLL_ENV: production
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ruby-2.7.5
+          bundler-cache: true
+      - name: install
+        run: bundle
+      - name: install
+        run: yarn
+      - name: build
+        run: JEKYLL_ENV=${{env.JEKYLL_ENV}} bundle exec jekyll build --trace
+      - name: ftp deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{secrets.FTP_USERNAME}}
+          password: ${{secrets.FTP_PASSWORD}}
+          local-dir: ./_site/
+          state-name: ./.ftp-deploy-sync-state.json
