@@ -21,7 +21,7 @@ jobs:
       - name: install
         run: bundle install
       - name: build
-        run: JEKYLL_ENV=${{env.JEKYLL_ENV}} bundle exec jekyll build --trace
+        run: JEKYLL_ENV=html-migration bundle exec jekyll build --trace
       - uses: EndBug/add-and-commit@v7
         with:
           add: '_posts/'
