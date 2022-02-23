@@ -21,6 +21,7 @@ sass:
 theme: keywords-jekyll-theme
 # Jekyll plugins
 plugins:
+- press-plugins
 - jekyll-include-cache
 - jekyll-sitemap
 - jekyll-seo-tag
