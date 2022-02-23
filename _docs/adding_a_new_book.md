@@ -130,9 +130,31 @@ Read below for messages and what they mean.
 
 ![Build log](images/build_log.png)
 
-Once changes are done, you can merge the PR into the `main` branch.
-This will run the build and publication process, at the end of which the
-site will be live at <https://keywords.nyupress.org/>
+Once changes are done, you can remove the book directory under the
+`_html/` directory, before merging the PR into the `main` branch. This
+will run the build and publication process, at the end of which the site
+will be live at <https://keywords.nyupress.org/>
+
+### Removing the book files before merging
+
+* Switch the current branch to the branch for the book.  This can be
+  done from the branch switch when you made sure you were on the `main`
+  branch.  It's the same process for switching branches.
+
+* Open the `_html` directory on the file list and then the book
+  directory.
+
+* Open each file (`index.html`, `about.md`) and use the trash can icon
+  to remove it from the branch.
+
+From `git`, the removal can be done using:
+
+```bash
+git checkout book-branch
+git rm -r _html/book-directory/
+git commit -m "remove book"
+git push
+```
 
 ### Regular messages
 
