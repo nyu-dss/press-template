@@ -30,6 +30,7 @@ plugins:
 - jekyll-linked-posts
 - jekyll-lunr
 - jekyll-alternate-permalinks
+- jekyll-data
 # Fields indexed.  Fields that are also linked fields are sub-indexed.
 #
 # XXX: Don't add fields that may point to printed essays or their
